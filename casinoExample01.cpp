@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <string>
 #include <cstdlib>
 #include <ctime>
@@ -28,6 +28,7 @@ int main()
 	cout << "pronto para comecar?" << endl << endl;
 //	system("pause");
 	cout << "sua carteira vale: $" << balance << endl;
+    resume01:
 	cout << "insira quanto quer apostar: ";
 	cin >> valorAposta;
 
@@ -35,13 +36,14 @@ int main()
 	
 	if (valorAposta > balance)
 	{
-		cout << "DEBUG! aposta:" << valorAposta << endl;
 		cout << "nao podes apostar mais do que tens! tente novamente" << endl;
-		int aposta = 0;
+		valorAposta = 0;
+        goto resume01;
 	}
 
 	if (valorAposta == balance)
 	{
+        tryAgain01:
 		cout << "opa! tem certeza que quer apostar tudo?" << endl << "insira 's' para continuar e 'n' para inserir uma outra aposta." << endl;
 		cin >> manterAposta;
 		
@@ -51,11 +53,10 @@ int main()
 			cout << "sim";
 			break;
 		case 'n':
-			cout << "nao";
-
-			break;
+            goto resume01;
 		default:
-			cout << "default";
+			cout << "tente novamente!" << endl;
+            goto tryAgain01;
 		}
 
 	}
@@ -64,34 +65,42 @@ int main()
 	cout << "agora escolha tres numeros de 1 a 10 para apostar: ";
 	cin >> aposta1 >> aposta2 >> aposta3;
 	
-	//colocar codigo de add money nos if das apostas
+	//colocar codigo de add money nos if das apostas (done, agr e so testar e ver se ta pika)
 	if (aposta1 == numeroRandom1)
 	{
 		cout << "acertaste a primeira aposta!" << endl;
+        balance = balance + valorAposta*2;
 	}
 	if (aposta1 != numeroRandom1)
 	{
 		cout << "erraste a primeira aposta..." << endl;
+        balance = balance - valorAposta;
 	}
 
 	if (aposta2 == numeroRandom2)
 	{
 		cout << "acertaste a segunda aposta!" << endl;
+        balance = balance + valorAposta*2;
 	}
 	if (aposta2 != numeroRandom2)
 	{
 		cout << "erraste a segunda aposta..." << endl;
+        balance = balance - valorAposta;
 	}
 
 	if (aposta3 == numeroRandom3)
 	{
 		cout << "acertaste a terceira aposta!" << endl;
+        balance = balance + valorAposta * 2;
 	}
 	if (aposta3 != numeroRandom3)
 	{
 		cout << "erraste a terceira aposta..." << endl;
+        balance = balance - valorAposta;
 	}
+    
+    cout << "DEBUG! balance atual: " << balance << endl;
+    // nota: sistema de manipulacao de balance ja esta funcionando :DD
 
 	return 0;
 }
-*/

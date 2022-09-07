@@ -28,6 +28,7 @@ int main()
 }
 // nota: codigo funcionando, caso for mudar alguma coisa, copiar e colar em outro espaco para testar de novo!
 */
+/*
 int main()
 {
 	while (!cin.fail())
@@ -58,3 +59,23 @@ int main()
 	return 0;
 }
 // nao ta funcionando essa porra, problema no codigo de balance, manipulacao soma/subtracao...
+*/
+ /*
+int main( )
+{
+    
+    int valor2add = 0;
+    int valorOriginal = 0;
+    int valorFinal = 0;
+    
+    cout << "insira o valor original: ";
+    cin >> valorOriginal;
+    cout << "insira o valor a ser adicionado: ";
+    cin  >> valor2add;
+    valorFinal = valor2add + valorOriginal;
+    cout << "valor final: " << valorFinal << endl;
+    //cout << "valor final: " << valor2add + valorOriginal << endl;
+    
+    return 0;
+}
+*/
