@@ -70,9 +70,33 @@ int main()
 	}
 	
 	//tldr: aq eh dps que a aposta foi inserida
+retryAposta:
 	cout << "agora escolha tres numeros de 1 a 10 para apostar: ";
+	cin.clear();
+	cin.ignore();
 	cin >> aposta1 >> aposta2 >> aposta3;
 	cout << endl;
+
+	/*
+	if (cin.fail())
+	{
+		cout << "um caractere invalido foi inserido, tente novamente!" << endl;
+		aposta1 = 0;
+		aposta2 = 0;
+		aposta3 = 0;
+		goto retryAposta;
+	}
+	nota: nao funcionando atm, algum integer fica maior do que 10 por algum motivo o qual estou com bastante sono pra ir atras xd
+	*/
+
+	if (aposta1 || aposta2 || aposta3 > 10)
+	{
+		cout << "uma das apostas inseridas foi maior do que 10, tente novamente!" << endl;
+		aposta1 = 0;
+		aposta2 = 0;
+		aposta3 = 0;
+		goto retryAposta;
+	}
 
 	//colocar codigo de add money nos if das apostas (done, agr e so testar e ver se ta pika)
 	if (aposta1 == numeroRandom1)
@@ -107,13 +131,12 @@ int main()
 		cout << "erraste a terceira aposta..." << endl;
      //   balance = balance - valorAposta;
 	}
+
 	// 2do: colocar dependendo de quantas apostas foram acertadas, textos diferentes de tryagain
 	cout << endl;
 	cout << "bem jogado, jogue novamente!" << endl;
 	cout << "sua carteira vale: $" << balance << endl;
-	goto resume01;
-	
-
+	cout << endl;
     
 	if (balance < 1)
 	{
@@ -139,6 +162,10 @@ int main()
 			cout << "input invalido, insira 's' para recomecar e 'n' para sair." << endl;
 			goto tryAgain02;
 		}
+	}
+	if (balance >= 1)
+	{
+		goto resume01;
 	}
     // nota: sistema de manipulacao de balance ja esta funcionando :DD
 	// 
